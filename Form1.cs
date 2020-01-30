@@ -72,10 +72,6 @@ namespace EscuelaGUI
                 {
                     Empleado[] Empleados = new Empleado[1];
 
-                    Empleados[0].setNombre(nombre);
-                    Empleados[0].setDepto(depto);
-                    Empleados[0].setPuesto(puesto);
-
                     if (rbPagoHoras.Checked)
                     {
                         hrsTrab = Convert.ToInt32(txtHorasTrab.Text);
@@ -83,12 +79,16 @@ namespace EscuelaGUI
 
                         Empleados[0] = new EmpleadoPorHoras(hrsTrab, pagoHr);
                     }
-                    else
+                    if(rbTiempoCompleto.Checked)
                     {
                         sueldoMesual = Convert.ToDouble(txtSueldoMensual.Text);
 
                         Empleados[0] = new EmpleadoTiempoCompleto(sueldoMesual);
                     }
+
+                    Empleados[0].setNombre(nombre);
+                    Empleados[0].setDepto(depto);
+                    Empleados[0].setPuesto(puesto);
 
                     Empleados[0].calcularSueldoQna();
 
