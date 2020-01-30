@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace EscuelaGUI
 {
-    public partial class Form1 : Form
+    public partial class Form1: Form
     {
         public Form1()
         {
@@ -58,53 +58,42 @@ namespace EscuelaGUI
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            String nomEmp, depto, puesto;
+            String nombre, depto, puesto;
             int hrsTrab;
             double pagoHr, sueldoMesual;
 
-            nomEmp = txtNombre.Text;
+            nombre = txtNombre.Text;
             depto = txtDepartamento.Text;
             puesto = txtPuesto.Text;
 
-            if (nomEmp != "" && depto != "" && puesto != "")
+            if (nombre != "" && depto != "" && puesto != "")
             {
                 try
                 {
+                    Empleado[] Empleados = new Empleado[1];
+
+                    Empleados[0].setNombre(nombre);
+                    Empleados[0].setDepto(depto);
+                    Empleados[0].setPuesto(puesto);
+
                     if (rbPagoHoras.Checked)
                     {
-                        EmpleadoPorHoras objEmpleado = new EmpleadoPorHoras();
-
                         hrsTrab = Convert.ToInt32(txtHorasTrab.Text);
                         pagoHr = Convert.ToDouble(txtPagoHr.Text);
 
-                        objEmpleado.establecerNombreEmp(nomEmp);
-                        objEmpleado.establecerDeptoEmp(depto);
-                        objEmpleado.establecerPuestoEmpo(puesto);
-                        objEmpleado.establecerHorasTrab(hrsTrab);
-                        objEmpleado.establecerPagoHora(pagoHr);
-
-                        objEmpleado.calcularSueldoQna();
-
-                        // impresiones
-                        txtImpresiones.Text = "Nombre del empleado: " + objEmpleado.obtenerNombreEmp() + Environment.NewLine + "Departamento: " + objEmpleado.obtenerDeptoEmp() + Environment.NewLine + "Puesto: " + objEmpleado.obtenerPuestoEmp() + Environment.NewLine + "Sueldo quincenal: " + objEmpleado.obtenerSueldoQna();
-
+                        Empleados[0] = new EmpleadoPorHoras(hrsTrab, pagoHr);
                     }
                     else
                     {
-                        EmpleadoTiempoCompleto objEmpleado = new EmpleadoTiempoCompleto();
-
                         sueldoMesual = Convert.ToDouble(txtSueldoMensual.Text);
 
-                        objEmpleado.establecerNombreEmp(nomEmp);
-                        objEmpleado.establecerDeptoEmp(depto);
-                        objEmpleado.establecerPuestoEmpo(puesto);
-                        objEmpleado.establecerSueldoMensual(sueldoMesual);
-
-                        objEmpleado.calcularSueldoQna();
-
-                        // impresiones
-                        txtImpresiones.Text = "Nombre del empleado: " + objEmpleado.obtenerNombreEmp() + Environment.NewLine + "Departamento: " + objEmpleado.obtenerDeptoEmp() + Environment.NewLine + "Puesto: " + objEmpleado.obtenerPuestoEmp() + Environment.NewLine + "Sueldo quincenal: " + objEmpleado.obtenerSueldoQna();
+                        Empleados[0] = new EmpleadoTiempoCompleto(sueldoMesual);
                     }
+
+                    Empleados[0].calcularSueldoQna();
+
+                    // impresiones
+                    txtImpresiones.Text = "Nombre del empleado: " + Empleados[0].getNombre() + Environment.NewLine + "Departamento: " + Empleados[0].getDepto() + Environment.NewLine + "Puesto: " + Empleados[0].getPuesto() + Environment.NewLine + "Sueldo quincenal: " + Empleados[0].getSueldoQna();
 
                     // deshabilitar & habilitar botones
                     txtNombre.Enabled = false;

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace EscuelaGUI
 {
-    class EmpleadoTiempoCompleto : Empleado
+    class EmpleadoTiempoCompleto: Empleado
     {
-        double sueldoMensual;
+        private double sueldoMensual;
 
-        public void establecerSueldoMensual(double sue)
+        public EmpleadoTiempoCompleto(double sueldoMensual)
         {
-            sueldoMensual = sue;
+            this.sueldoMensual = sueldoMensual;
         }
 
         public override double calcularSueldoQna()

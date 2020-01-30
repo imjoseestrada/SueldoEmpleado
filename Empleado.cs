@@ -8,42 +8,42 @@ namespace EscuelaGUI
 {
     abstract class Empleado
     {
-        protected String nombreEmp, deptoEmp, puestoEmp;
+        protected String nombre, depto, puesto;
         protected double sueldoQna;
 
-        public void establecerNombreEmp(String nom)
+        public void setNombre(String nombre)
         {
-            nombreEmp = nom;
+            this.nombre = nombre;
         }
 
-        public void establecerDeptoEmp(String dep)
+        public void setDepto(String depto)
         {
-            deptoEmp = dep;
+            this.depto = depto;
         }
 
-        public void establecerPuestoEmpo(String pue)
+        public void setPuesto(String puesto)
         {
-            puestoEmp = pue;
+            this.puesto = puesto;
         }
 
         public abstract Double calcularSueldoQna();
 
-        public String obtenerNombreEmp()
+        public String getNombre()
         {
-            return nombreEmp;
+            return nombre;
         }
 
-        public String obtenerDeptoEmp()
+        public String getDepto()
         {
-            return deptoEmp;
+            return depto;
         }
 
-        public String obtenerPuestoEmp()
+        public String getPuesto()
         {
-            return puestoEmp;
+            return puesto;
         }
 
-        public double obtenerSueldoQna()
+        public double getSueldoQna()
         {
             return sueldoQna;
         }

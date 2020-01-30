@@ -6,24 +6,20 @@ using System.Threading.Tasks;
 
 namespace EscuelaGUI
 {
-    class EmpleadoPorHoras : Empleado
+    class EmpleadoPorHoras: Empleado
     {
-        int horasTrab;
-        double pagoHora;
+        private int hrsTrab;
+        private double pagoHr;
 
-        public void establecerHorasTrab(int HorasTr)
+        public EmpleadoPorHoras(int hrsTrab, double pagoHr)
         {
-            horasTrab = HorasTr;
-        }
-
-        public void establecerPagoHora(double pagoHr)
-        {
-            pagoHora = pagoHr;
+            this.hrsTrab = hrsTrab;
+            this.pagoHr = pagoHr;
         }
 
         public override double calcularSueldoQna()
         {
-            sueldoQna = horasTrab * pagoHora;
+            sueldoQna = hrsTrab * pagoHr;
             return sueldoQna;
         }
     }
