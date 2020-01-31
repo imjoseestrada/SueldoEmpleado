@@ -60,6 +60,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(148, 20);
             this.txtNombre.TabIndex = 2;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtDepartamento
             // 
@@ -67,6 +68,7 @@
             this.txtDepartamento.Name = "txtDepartamento";
             this.txtDepartamento.Size = new System.Drawing.Size(148, 20);
             this.txtDepartamento.TabIndex = 3;
+            this.txtDepartamento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDepartamento_KeyPress);
             // 
             // txtPuesto
             // 
@@ -74,6 +76,7 @@
             this.txtPuesto.Name = "txtPuesto";
             this.txtPuesto.Size = new System.Drawing.Size(148, 20);
             this.txtPuesto.TabIndex = 4;
+            this.txtPuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPuesto_KeyPress);
             // 
             // rbPagoHoras
             // 
@@ -105,6 +108,7 @@
             this.panel1.Controls.Add(this.txtHorasTrab);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
+            this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(34, 127);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(242, 142);
@@ -146,6 +150,7 @@
             // 
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.txtSueldoMensual);
+            this.panel2.Enabled = false;
             this.panel2.Location = new System.Drawing.Point(34, 127);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(242, 142);

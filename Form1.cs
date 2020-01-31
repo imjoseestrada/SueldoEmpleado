@@ -27,8 +27,6 @@ namespace EscuelaGUI
             rbPagoHoras.Enabled = true;
             btnCalcular.Enabled = true;
             btnNuevo.Enabled = false;
-            panel1.Enabled = true;
-            panel2.Enabled = true;
 
             // limpiar campos
             txtNombre.Text = null;
@@ -48,12 +46,16 @@ namespace EscuelaGUI
         {
             panel1.Show();
             panel2.Hide();
+            panel1.Enabled = true;
+            panel2.Enabled = false;
         }
 
         private void rbTiempoCompleto_CheckedChanged(object sender, EventArgs e)
         {
-            panel2.Show();
             panel1.Hide();
+            panel2.Show();
+            panel1.Enabled = false;
+            panel2.Enabled = true;
         }
 
         private void btnCalcular_Click(object sender, EventArgs e)
@@ -108,11 +110,36 @@ namespace EscuelaGUI
                 }
                 catch (FormatException)
                 {
-                    MessageBox.Show("Debe ingresar números para calcular el sueldo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ingresar sólo números para calcular el sueldo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             } else
             {
                 MessageBox.Show("Todos los campos deben ser completados.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloLetras(sender, e);
+        }
+
+        private void txtDepartamento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloLetras(sender, e);
+        }
+
+        private void txtPuesto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloLetras(sender, e);
+        }
+
+        private void SoloLetras(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+            {
+                MessageBox.Show("Ingresar sólo letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
             }
         }
     }
