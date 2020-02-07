@@ -1,4 +1,4 @@
-﻿namespace EscuelaGUI
+﻿namespace SueldoEmpleado
 {
     partial class Form1
     {
@@ -60,7 +60,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(148, 20);
             this.txtNombre.TabIndex = 2;
-            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloLetras);
             // 
             // txtDepartamento
             // 
@@ -68,7 +68,7 @@
             this.txtDepartamento.Name = "txtDepartamento";
             this.txtDepartamento.Size = new System.Drawing.Size(148, 20);
             this.txtDepartamento.TabIndex = 3;
-            this.txtDepartamento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDepartamento_KeyPress);
+            this.txtDepartamento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloLetras);
             // 
             // txtPuesto
             // 
@@ -76,7 +76,7 @@
             this.txtPuesto.Name = "txtPuesto";
             this.txtPuesto.Size = new System.Drawing.Size(148, 20);
             this.txtPuesto.TabIndex = 4;
-            this.txtPuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPuesto_KeyPress);
+            this.txtPuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloLetras);
             // 
             // rbPagoHoras
             // 

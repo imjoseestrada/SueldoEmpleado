@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EscuelaGUI
+namespace SueldoEmpleado
 {
     public partial class Form1: Form
     {
@@ -68,8 +68,11 @@ namespace EscuelaGUI
             depto = txtDepartamento.Text;
             puesto = txtPuesto.Text;
 
+            // utilicé esto para validar que el usuario ingresó los datos del empleado
+            // nombre, departamento y puesto
             if (nombre != "" && depto != "" && puesto != "")
             {
+                // el try catch me sirve para validar que al convertir textbox a número sea valido, sino en el catch enviará el mensaje de alerta
                 try
                 {
                     Empleado[] Empleados = new Empleado[1];
@@ -118,21 +121,7 @@ namespace EscuelaGUI
             }
         }
 
-        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            SoloLetras(sender, e);
-        }
-
-        private void txtDepartamento_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            SoloLetras(sender, e);
-        }
-
-        private void txtPuesto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            SoloLetras(sender, e);
-        }
-
+        // Evento tipo KeyPress para validar que el usuario ingrese solo letras
         private void SoloLetras(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
